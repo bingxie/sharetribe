@@ -31,10 +31,10 @@ Then(/^I should see a range from (\d+) to (\d+) with total user count of (\d+)$/
 end
 
 Then(/^I should see list of users with the following details:$/) do |table|
-  
+
   # This waits for ajax requests to complete
   expect(page).to have_selector("#admin_members_list tbody tr", :count => table.rows.count)
-  
+
   cells = all("#admin_members_list tbody tr").map do |rows|
     rows.all("td")
   end
@@ -61,7 +61,7 @@ end
 
 Then(/^I should see that "(.*?)" cannot post new listings$/) do |full_name|
   checkbox = find_posting_allowed_checkbox_for_person(full_name)
-  checkbox['checked'].should be_nil
+  checkbox['checked'].should be_falsey
 end
 
 When(/^I verify user "(.*?)" as a seller$/) do |full_name|
@@ -110,7 +110,7 @@ Then(/^I should see that "(.*?)" has admin rights in this community$/) do |full_
 end
 
 Then(/^I should see that "(.*?)" does not have admin rights in this community$/) do |full_name|
-  find_admin_checkbox_for_person(full_name)['checked'].should be_nil
+  find_admin_checkbox_for_person(full_name)['checked'].should be_falsey
 end
 
 When(/^I promote "(.*?)" to admin$/) do |full_name|
