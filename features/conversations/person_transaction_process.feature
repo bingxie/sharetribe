@@ -40,7 +40,7 @@ Feature: Transaction process between two users
 
     # Rest of the steps are not tested because we cannot reliably access Checkout/Osuuspankki in all test environments
 
-  @javascript
+  @javascript @codeship
   Scenario: Free message conversation for non-monetary transaction
     Given there are following users:
       | person |
