@@ -4,7 +4,7 @@ def zeus_running?
   File.exists? '.zeus.sock'
 end
 
-if !zeus_running?
+if !zeus_running? && !ENV['CODESHIP']
   require 'coveralls'
   Coveralls.wear!('rails')
 end
