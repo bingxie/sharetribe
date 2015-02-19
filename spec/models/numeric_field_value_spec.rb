@@ -69,6 +69,8 @@ describe NumericFieldValue do
     end
 
     it "searches by numeric field and value pairs" do
+      pending("Codeship sphinx version is too old.") if ENV["CODESHIP"]
+
       test_search((0..50),  (0..20),  0) # Neither matches
       test_search((0..150), (0..20),  0) # Length matches 1, width matches 0
       test_search((0..150), (0..35),  1) # Length matches 1, width matches 1
