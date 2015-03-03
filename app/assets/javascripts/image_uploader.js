@@ -108,6 +108,11 @@ window.ST.imageUploadElementManager = function($container) {
     }
 
     uploadings.push(element);
+
+    var total = uploadings.length + previews.length;
+    if(total >= 4) {
+      $('#fileupload.fileinput-button.upload-image-placeholder').last().hide();
+    }
   }
 
   function changeStateToProcessing(uploadingElement, processingElement) {
